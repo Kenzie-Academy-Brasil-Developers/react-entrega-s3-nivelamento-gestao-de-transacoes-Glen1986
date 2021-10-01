@@ -1,23 +1,29 @@
+import {useState} from "react";
 import Input from "../Input";
 import Button from '../Button';
 
 const FormOut = ({products, setProducts, ...rest}) => {
-  const selFruit = () => {
-    console.log("-furtas")
+  const [filtProd, setFiltProd] = useState({
+    name: "",
+    quantity: "",
+  })
+  const handleForm = () => {
+    console.log(filtProd)
   }
   return (
     <>
       <h1>Saidas</h1>
-      <form >
+      <form onSubmit={handleForm}>
         <Input
+          value={filtProd.name}
           placeholder={"Fruta"}
-          onChange={(e) => console.log(e.target.value)} />
+          onChange={(e) => setFiltProd({...filtProd, name: e.target.value})} />
         <Input
+          value={filtProd.quantity}
           placeholder={"Quantidade"}
-          onChange={(e) => console.log(e.target.value)} />
+          onChange={(e) => setFiltProd({...filtProd, quantity: e.target.value})} />
       </form>
       <Button
-        onClick={selFruit}
         children={"Saidas"}
         type={'submit'}
       />
