@@ -47,8 +47,7 @@ const FormIn = ({products, setProducts, ...rest}) => {
         />
       </form>
       <Display
-        myFruit={myFruit}
-      />
+        myFruit={myFruit}></Display>
     </>
   );
 };

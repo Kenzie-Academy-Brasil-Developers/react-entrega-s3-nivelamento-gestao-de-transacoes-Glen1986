@@ -1,9 +1,8 @@
 const Display = ({myFruit}) => {
   return (
     <>
-      {myFruit.length > 0 ? (
+      {[myFruit].length >= 1 ? (
         <table>
-          {console.log(myFruit)}
           {[myFruit].map((item, index) =>
             <tr key={index}>
               <td className="name">nome: {item.name}, </td>
@@ -12,8 +11,9 @@ const Display = ({myFruit}) => {
             </tr>)}
 
         </table>
+
       ) : (
-        <></>
+        <div></div>
       )}
     </>
   )
