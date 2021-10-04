@@ -14,9 +14,8 @@ function App() {
     {name: "morango", quantity: -10, price: 2},
     {name: "laranja", quantity: 50, price: 6},
   ])
-  const cantidad = products.map(item => item.quantity)
-  const precio = products.map(item => item.price)
-  const total = Number(cantidad) * Number(precio);
+  //  const cantidad = products.map(item => item.quantity);
+  //  const precio = products.map(item => item.price);
   return (
     <div className="App">
       <header className="App-header">
@@ -30,7 +29,7 @@ function App() {
           setIsShow={setIsShow}
           isShow={isShow}
           onClick={() => setIsShow(!isShow)} />
-        {isShow === true ? (
+        {!isShow === true ? (
           <FormIn
             products={products}
             setProducts={setProducts}

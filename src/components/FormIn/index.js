@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Input from "../Input";
 import Button from '../Button';
+import Display from '../Display';
 
 const FormIn = ({products, setProducts, ...rest}) => {
   const [newFruit, setNewFruit] = useState({
@@ -8,16 +9,20 @@ const FormIn = ({products, setProducts, ...rest}) => {
     quantity: "",
     price: "",
   })
+  const [myFruit, setMyFruit] = useState({})
 
   const handleForm = (e) => {
     e.preventDefault();
     setProducts([
       ...products, newFruit
     ])
-    console.log(newFruit)
+    setMyFruit([...myFruit, newFruit])
   }
   return (
+
     <>
+
+      {console.log(newFruit)}
       <h1>Entradas</h1>
       <form onSubmit={handleForm} >
 
@@ -41,7 +46,9 @@ const FormIn = ({products, setProducts, ...rest}) => {
           children={"entradas"}
           type={'submit'}
         />
-
+        <Display
+          obj={myFruit}
+        ></Display>
       </form>
     </>
   );
