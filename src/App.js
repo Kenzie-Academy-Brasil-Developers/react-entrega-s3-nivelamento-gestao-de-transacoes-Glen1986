@@ -20,7 +20,7 @@ function App() {
       <header className="App-header">
         <h1>Nivelamento</h1>
         <Button
-          children={isShow ? (
+          children={!isShow ? (
             "vai pra Saidas"
           ) : (
             "vai pra Entradas"
