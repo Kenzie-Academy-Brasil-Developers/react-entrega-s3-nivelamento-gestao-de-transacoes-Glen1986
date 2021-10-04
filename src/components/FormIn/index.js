@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Input from "../Input";
 import Button from '../Button';
-import Display from '../Display';
+//import Display from '../Display';
 
 const FormIn = ({products, setProducts, ...rest}) => {
   const [newFruit, setNewFruit] = useState({
@@ -16,7 +16,7 @@ const FormIn = ({products, setProducts, ...rest}) => {
     setProducts([
       ...products, newFruit
     ])
-    setMyFruit([...myFruit, newFruit])
+    setMyFruit(newFruit)
   }
   return (
 
@@ -46,9 +46,6 @@ const FormIn = ({products, setProducts, ...rest}) => {
           children={"entradas"}
           type={'submit'}
         />
-        <Display
-          obj={myFruit}
-        ></Display>
       </form>
     </>
   );
