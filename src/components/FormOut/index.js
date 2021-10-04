@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Input from "../Input";
 import Button from '../Button';
+import Display from "../Display";
 
 const FormOut = ({products, setProducts, ...rest}) => {
   const [filtProd, setFiltProd] = useState({
@@ -38,6 +39,7 @@ const FormOut = ({products, setProducts, ...rest}) => {
           type={'submit'}
         />
       </form>
+      <Display>display</Display>
     </>
   )
 }

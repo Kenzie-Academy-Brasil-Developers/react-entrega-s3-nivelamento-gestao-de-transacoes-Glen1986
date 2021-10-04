@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import Button from './components/Button';
 //import Input from './components/Input';
-//import Display from './components/Display';
 import './App.css';
 import FormIn from './components/FormIn';
 import FormOut from './components/FormOut';
@@ -19,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Display</h1>
+        <h1>Nivelamento</h1>
         <Button
           children={isShow ? (
             "vai pra Saidas"
