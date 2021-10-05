@@ -1,9 +1,10 @@
 import {useState} from 'react';
 import Button from './components/Button';
-//import Input from './components/Input';
+import Ins from './components/ins';
+import Outs from './components/outs';
 import './App.css';
-import FormIn from './components/FormIn';
-import FormOut from './components/FormOut';
+import Display from './components/Display';
+import Form from './components/Form';
 
 function App() {
 
@@ -13,8 +14,11 @@ function App() {
     {name: "morango", quantity: -10, price: 2},
     {name: "laranja", quantity: 50, price: 6},
   ])
-  //  const cantidad = products.map(item => item.quantity);
-  //  const precio = products.map(item => item.price);
+  const totalPriceOut = (products.filter(item => item.quantity < 0)
+    .reduce((a, b) => (a + b.price * b.quantity), 0) * -1).toLocaleString("pt-BR", {
+      style: "currency", currency: "BRL"
+    })
+
   return (
     <div className="App">
       <header className="App-header">
@@ -28,23 +32,24 @@ function App() {
           setIsShow={setIsShow}
           isShow={isShow}
           onClick={() => setIsShow(!isShow)} />
-        {!isShow === true ? (
-          <FormIn
-            products={products}
-            setProducts={setProducts}
-          />
+        {!isShow ? (
+          <>
+            <h3>entradas</h3>
+            <Ins products={products} />
+          </>
         ) : (
-          <FormOut
-            products={products}
-            setProducts={setProducts}
-          />
-        )}
-
-        <ul>
-          <tl>{products.map(item => <tr>nome: {item.name}, </tr>)} </tl>
-          <tl>{products.map(item => <tr>qtd: {item.quantity}, </tr>)} </tl>
-          <tl>{products.map(item => <tr> valor: {item.price} </tr>)} </tl>
-        </ul>
+          <>
+            <h3>Saidas</h3>
+            <Outs products={products} />
+          </>)}
+        <Form
+          products={products}
+          setProducts={setProducts}
+        /><>
+          <h3>transaçoes</h3>
+          <h4>Valor total de Vendas:{totalPriceOut}</h4>
+          <Display listProd={products}></Display>
+        </>
       </header>
     </div>
   );

@@ -3,7 +3,7 @@ import Input from "../Input";
 import Button from '../Button';
 import Display from '../Display';
 
-const FormIn = ({products, setProducts, ...rest}) => {
+const Form = ({products, setProducts, ...rest}) => {
   const [newFruit, setNewFruit] = useState({
     name: "",
     quantity: "",
@@ -22,7 +22,7 @@ const FormIn = ({products, setProducts, ...rest}) => {
 
     <>
 
-      <h1>Entradas</h1>
+      <h1>Cadastro</h1>
       <form onSubmit={handleForm} >
 
         <Input
@@ -34,21 +34,20 @@ const FormIn = ({products, setProducts, ...rest}) => {
           {...rest}
           placeholder={"Qantidade"}
           value={newFruit.quantity}
-          onChange={(e) => setNewFruit({...newFruit, quantity: e.target.value})} />
+          onChange={(e) => setNewFruit({...newFruit, quantity: Number(e.target.value)})} />
         <Input
           {...rest}
           placeholder={"Valor"}
           value={newFruit.price}
-          onChange={(e) => setNewFruit({...newFruit, price: e.target.value})} />
+          onChange={(e) => setNewFruit({...newFruit, price: Number(e.target.value)})} />
         <Button
           {...rest}
           children={"entradas"}
           type={'submit'}
         />
       </form>
-      <Display
-        myFruit={myFruit}></Display>
+      <Display myFruit={newFruit}></Display>
     </>
   );
 };
-export default FormIn;
+export default Form;
