@@ -1,7 +1,6 @@
 import {useState} from "react";
 import Input from "../Input";
 import Button from '../Button';
-import Display from '../Display';
 
 const Form = ({products, setProducts, ...rest}) => {
   const [newFruit, setNewFruit] = useState({
@@ -21,7 +20,6 @@ const Form = ({products, setProducts, ...rest}) => {
   return (
 
     <>
-
       <h1>Cadastro</h1>
       <form onSubmit={handleForm} >
 
@@ -46,7 +44,6 @@ const Form = ({products, setProducts, ...rest}) => {
           type={'submit'}
         />
       </form>
-      <Display myFruit={newFruit}></Display>
     </>
   );
 };
