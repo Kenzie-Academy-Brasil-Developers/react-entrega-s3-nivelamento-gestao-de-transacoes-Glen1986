@@ -4,8 +4,7 @@ import Ins from './components/ins';
 import Outs from './components/outs';
 import './App.css';
 import Display from './components/Display';
-//import Form from './components/Form';
-import Formu from './components/formu';
+import Form from './components/Form';
 
 function App() {
 
@@ -43,7 +42,7 @@ function App() {
             <h3>Saidas</h3>
             <Outs products={products} />
           </>)}
-        <Formu
+        <Form
           isShow={isShow}
           products={products}
           setProducts={setProducts}

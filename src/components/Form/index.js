@@ -2,49 +2,46 @@ import {useState} from "react";
 import Input from "../Input";
 import Button from '../Button';
 
-const Form = ({products, setProducts, ...rest}) => {
-  const [newFruit, setNewFruit] = useState({
-    name: "",
-    quantity: "",
-    price: "",
-  })
-  const [myFruit, setMyFruit] = useState({})
+const Form = ({products, setProducts, isShow}) => {
+  const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [price, setPrice] = useState("");
 
-  const handleForm = (e) => {
-    e.preventDefault();
-    setProducts([
-      ...products, newFruit
-    ])
-    setMyFruit(newFruit)
+  const addFruit = (name, quantity, price) => {
+    const newFruit = {
+      name: name,
+      quantity: Number(quantity),
+      price: Number(price)
+    }
+    setProducts([...products, newFruit]);
   }
   return (
-
     <>
-      <h1>Cadastro</h1>
-      <form onSubmit={handleForm} >
-
+      <div>
         <Input
-          {...rest}
-          placeholder={"Fruta"}
-          value={newFruit.name}
-          onChange={(e) => setNewFruit({...newFruit, name: e.target.value})} />
-        <Input
-          {...rest}
-          placeholder={"Qantidade"}
-          value={newFruit.quantity}
-          onChange={(e) => setNewFruit({...newFruit, quantity: Number(e.target.value)})} />
-        <Input
-          {...rest}
-          placeholder={"Valor"}
-          value={newFruit.price}
-          onChange={(e) => setNewFruit({...newFruit, price: Number(e.target.value)})} />
-        <Button
-          {...rest}
-          children={"entradas"}
-          type={'submit'}
+          placeholder={"fruta"}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />      <Input
+          placeholder={"quantidade"}
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+        />      <Input
+          placeholder={"preco"}
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
         />
-      </form>
+        <Button
+          children={isShow ? (
+            "add"
+          ) : (
+            "off"
+          )}
+          onClick={() => addFruit(name, quantity, price)}
+        />
+
+      </div>
     </>
-  );
-};
+  )
+}
 export default Form;
