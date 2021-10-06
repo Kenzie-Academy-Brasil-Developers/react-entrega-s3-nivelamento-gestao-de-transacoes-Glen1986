@@ -24,19 +24,17 @@ const Form = ({products, setProducts, isShow}) => {
           onChange={(e) => setName(e.target.value)}
         />      <Input
           placeholder={"quantidade"}
+          type="number"
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
         />      <Input
           placeholder={"preco"}
+          type="number"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
         <Button
-          children={isShow ? (
-            "add"
-          ) : (
-            "off"
-          )}
+          children={"add"}
           onClick={() => addFruit(name, quantity, price)}
         />
 
