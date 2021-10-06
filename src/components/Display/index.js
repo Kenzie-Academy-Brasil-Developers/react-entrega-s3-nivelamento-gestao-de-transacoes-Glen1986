@@ -8,7 +8,7 @@ const Display = ({listProd}) => {
           <td className="preco">preco: {item.price}  </td>
         </tr>
       )) : (
-        <div>lista vazia</div>
+        <></>
       )}
     </>
   )
